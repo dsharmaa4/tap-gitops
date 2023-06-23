@@ -1,0 +1,83 @@
+---
+tap_install:
+  values:
+    profile: full
+    shared: 
+      ingress_domain: "deepak.vmwareexploreindia.com"
+      ingress_issuer: ""
+      image_registry: 
+        project_path: "tanzurepo.azurecr.io/tap151/tap-packages"
+        username: "tanzurepo"
+        password: "0vLCaPyG55CnOo3h8XIFAEvkhPoaY9UWntvVYGKD+r+ACRD8QGpR"
+
+    ceip_policy_disclosed: true # Installation fails if this is set to 'false'
+
+    buildservice:
+      kp_default_repository: tanzurepo.azurecr.io/buildservice
+      kp_default_repository_secret:
+        name: registry-credentials
+        namespace: tap-install
+    supply_chain: testing_scanning
+
+    ootb_supply_chain_testing_scanning:
+      registry:
+        server: tanzurepo.azurecr.io
+        repository: sharma_azure
+      gitops:
+        ssh_secret: ""
+
+    scanning:
+      metadataStore:
+        url: ""
+
+    metadata_store:
+      ns_for_export_app_cert: "tap-workload"
+      app_service_type: ClusterIP
+    contour:
+      envoy:
+        service:
+          type: LoadBalancer
+    tap_gui:
+      service_type: ClusterIP
+      metadataStoreAutoconfiguration: true
+      ingressEnabled: true
+      ingressDomain: "deepak.vmwareexploreindia.com"
+      app_config:
+        app:
+          baseUrl: http://tap-gui.deepak.vmwareexploreindia.com
+        integrations:
+          github: # Other integrations available see NOTE below
+            - host: github.com
+              token: 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
+        catalog:
+          locations:
+            - type: url
+              target: https://github.com/dsharmaa4/tanzu-java-web-app/blob/main/catalog/catalog-info.yaml
+        backend:
+          baseUrl: http://tap-gui.deepak.vmwareexploreindia.com
+          cors:
+            origin: http://tap-gui.deepak.vmwareexploreindia.com
+
+    accelerator:
+      ingress: 
+        include: true
+        enable_tls: false
+ 
+    cnrs:
+      domain_name: "deepak.vmwareexploreindia.com"
+
+    grype:
+      namespace: "tap-workload"
+      targetImagePullSecret: "registry-credentials"
+
+    appliveview:
+          ingressEnabled: false
+          ingressDomain: "deepak.vmwareexploreindia.com"
+
+    appliveview_connector:
+          backend:
+            ingressEnabled: false
+            host: "appliveview.deepak.vmwareexploreindia.com"
+            sslDeactivated: false
+# excluded_packages:
+#  - backend.appliveview.tanzu.vmware.com
