@@ -48,7 +48,7 @@ tap_install:
         integrations:
           github: # Other integrations available see NOTE below
             - host: github.com
-              token: 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
+              token: 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
         catalog:
           locations:
             - type: url
