@@ -2,6 +2,6 @@ tap_install:
     sensitive_values:
         shared:
             image_registry:
-                project_path: tanzurepo.azurecr.io/tap151/tap-packages:1.5.1
+                project_path: tanzurepo.azurecr.io/gitops_setup
                 username: tanzurepo
                 password: 0vLCaPyG55CnOo3h8XIFAEvkhPoaY9UWntvVYGKD+r+ACRD8QGpR
