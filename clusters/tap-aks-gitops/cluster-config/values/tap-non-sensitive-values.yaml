@@ -11,7 +11,7 @@ tap_install:
     buildservice:
       kp_default_repository: tanzurepo.azurecr.io/buildservice
       kp_default_repository_secret:
-        name: registry-credentials
+        name: tap-values
         namespace: tap-install
     supply_chain: testing_scanning
 
@@ -63,7 +63,7 @@ tap_install:
       domain_name: "deepak.vmwareexploreindia.com"
 
     grype:
-      namespace: "tap-workload"
+      namespace: "tap-install"
       targetImagePullSecret: "registry-credentials"
 
     appliveview:
