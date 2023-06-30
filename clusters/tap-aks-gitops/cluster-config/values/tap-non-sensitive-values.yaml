@@ -11,7 +11,7 @@ tap_install:
     buildservice:
       kp_default_repository: tanzurepo.azurecr.io/buildservice
       kp_default_repository_secret:
-        name: tap-values
+        name: tap-pkgr-fetch-0
         namespace: tap-install
     supply_chain: testing_scanning
 
