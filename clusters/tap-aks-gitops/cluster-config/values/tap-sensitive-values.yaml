@@ -5,3 +5,4 @@ tap_install:
                 project_path: tanzurepo.azurecr.io/gitops_setup
                 username: tanzurepo
                 password: 0vLCaPyG55CnOo3h8XIFAEvkhPoaY9UWntvVYGKD+r+ACRD8QGpR
+                auth: l/e9H6Ffcj4TW3LtekG7FO+1Aejh10588Tm/NNTj29+ACRAdX2Pe 
